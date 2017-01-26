@@ -21,7 +21,19 @@
         "cweagans/composer-patches": "~1.0",
         "drupal/core": "~8.0",
         "drush/drush": "~8.0",
-        "drupal/console": "~1.0"
+        "drupal/console": "~1.0",
+        "drupal/admin_toolbar": "",
+        "drupal/coffee": "",
+        "drupal/devel": "",
+        "drupal/file_entity": "",
+        "drupal/google_analytics": "",
+        "drupal/metatag": "",
+        "drupal/pathauto": "",
+        "drupal/redirect": "",
+        "drupal/token": "",
+        "drupal/webform": "",
+        "drupal/diff": "",
+        "drupal/yoast_seo": ""
     },
     "require-dev": {
         "behat/mink": "~1.7",
@@ -30,7 +42,10 @@
         "jcalderonzumba/mink-phantomjs-driver": "~0.3.1",
         "mikey179/vfsStream": "~1.2",
         "phpunit/phpunit": "~4.8",
-        "symfony/css-selector": "~2.8"
+        "symfony/css-selector": "~2.8",
+        "squizlabs/php_codesniffer": "^2.7",
+        "drupal/coder": "^8.2",
+        "drupal/drupal-extension": "^3.2"
     },
     "conflict": {
         "drupal/drupal": "*"
@@ -55,6 +70,9 @@
         ],
         "post-update-cmd": [
             "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+        ],
+        "test": [
+          "./vendor/bin/phpcs -p"
         ]
     },
     "extra": {
