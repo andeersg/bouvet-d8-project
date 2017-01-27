@@ -5,10 +5,6 @@
 This project template should provide a kickstart for managing your site
 dependencies with [Composer](https://getcomposer.org/).
 
-If you want to know how to use it as replacement for
-[Drush Make](https://github.com/drush-ops/drush/blob/master/docs/make.md) visit
-the [Documentation on drupal.org](https://www.drupal.org/node/2471553).
-
 ## Usage
 
 First you need to [install composer](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx).
@@ -20,7 +16,7 @@ for your setup.
 After that you can create the project:
 
 ```
-composer create-project drupal-composer/drupal-project:8.x-dev some-dir --stability dev --no-interaction
+composer create-project andeersg/bouvet-d8-project:8.x-dev test1 --stability dev --no-interaction
 ```
 
 With `composer require ...` you can download new dependencies to your 
@@ -126,6 +122,3 @@ section of composer.json:
     }
 }
 ```
-### How do I switch from packagist.drupal-composer.org to packages.drupal.org?
-
-Follow the instructions in the [documentation on drupal.org](https://www.drupal.org/docs/develop/using-composer/using-packagesdrupalorg).
