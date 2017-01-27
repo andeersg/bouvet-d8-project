@@ -1,7 +1,5 @@
 # Composer template for Drupal projects
 
-[![Build Status](https://travis-ci.org/drupal-composer/drupal-project.svg?branch=8.x)](https://travis-ci.org/drupal-composer/drupal-project)
-
 This project template should provide a kickstart for managing your site
 dependencies with [Composer](https://getcomposer.org/).
 
@@ -23,18 +21,22 @@ And set up the site with Drush:
 ```
 drush site-install bouvet_profile --db-url='mysql://[db_user]:[db_pass]@localhost/[db_name]' --site-name=[site_name]
 ```
-With `composer require ...` you can download new dependencies to your 
-installation.
 
-```
-cd some-dir
-composer require drupal/devel:~1.0
-```
+This will create the database if the provided database user has permission to create.
 
 The `composer create-project` command passes ownership of all files to the 
 project that is created. You should create a new git repository, and commit 
 all files not excluded by the .gitignore file.
 
+### Download more modules
+
+With `composer require ...` you can download new dependencies to your 
+installation.
+
+```
+cd some-dir
+composer require drupal/panels
+```
 ## What does the template do?
 
 When installing the given `composer.json` some tasks are taken care of:
