@@ -18,7 +18,11 @@ After that you can create the project:
 ```
 composer create-project andeersg/bouvet-d8-project:8.x-dev test1 --stability dev --no-interaction
 ```
+And set up the site with Drush:
 
+```
+drush site-install bouvet_profile --db-url='mysql://[db_user]:[db_pass]@localhost/[db_name]' --site-name=[site_name]
+```
 With `composer require ...` you can download new dependencies to your 
 installation.
 
