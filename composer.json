@@ -9,12 +9,16 @@
             "role": ""
         }
     ],
-    "repositories": [
-        {
+    "repositories": {
+        "drupal": {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
+        },
+        "bouvet_profile": {
+            "type": "vcs",
+            "url": "https://github.com/andeersg/bouvet_profile"
         }
-    ],
+    },
     "require": {
         "composer/installers": "^1.2",
         "drupal-composer/drupal-scaffold": "^2.2",
@@ -32,7 +36,8 @@
         "drupal/redirect": "1.x-dev",
         "drupal/webform": "5.x-dev",
         "drupal/diff": "1.x-dev",
-        "drupal/yoast_seo": "^1.1"
+        "drupal/yoast_seo": "^1.1",
+        "andeersg/bouvet_profile": "dev-8.x-1.x"
     },
     "require-dev": {
         "behat/mink": "~1.7",
