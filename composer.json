@@ -21,8 +21,9 @@
     },
     "require": {
         "composer/installers": "^1.2",
+        "cweagans/composer-patches": "^1.6",
         "drupal-composer/drupal-scaffold": "^2.2",
-        "cweagans/composer-patches": "~1.0",
+        "drupal/console": "~1.0",
         "drupal/core": "~8.0",
         "drush/drush": "~8.0",
         "drupal/console": "~1.0",
@@ -37,7 +38,9 @@
         "drupal/webform": "5.x-dev",
         "drupal/diff": "1.x-dev",
         "drupal/yoast_seo": "^1.1",
-        "andeersg/bouvet_profile": "dev-8.x-1.x"
+        "andeersg/bouvet_profile": "dev-8.x-1.x",
+        "webflo/drupal-finder": "^0.2.1",
+        "webmozart/path-util": "^2.3"
     },
     "require-dev": {
         "behat/mink": "~1.7",
@@ -45,7 +48,7 @@
         "jcalderonzumba/gastonjs": "~1.0.2",
         "jcalderonzumba/mink-phantomjs-driver": "~0.3.1",
         "mikey179/vfsStream": "~1.2",
-        "phpunit/phpunit": "~4.8",
+        "phpunit/phpunit": ">=4.8.28 <5",
         "symfony/css-selector": "~2.8",
         "squizlabs/php_codesniffer": "^2.7",
         "drupal/coder": "^8.2",
@@ -56,6 +59,9 @@
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
+    "config": {
+      "sort-packages": true
+    },
     "autoload": {
         "classmap": [
             "scripts/composer/ScriptHandler.php"
