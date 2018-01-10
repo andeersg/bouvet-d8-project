@@ -39,7 +39,7 @@
         "drupal/diff": "^1.0",
         "drupal/yoast_seo": "^1.3",
         "andeersg/bouvet_profile": "dev-8.x-1.x",
-        "webflo/drupal-finder": "^0.2.1",
+        "webflo/drupal-finder": "^0.3.0",
         "webmozart/path-util": "^2.3"
     },
     "require-dev": {
