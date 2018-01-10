@@ -16,7 +16,8 @@
         },
         "bouvet_profile": {
             "type": "vcs",
-            "url": "https://github.com/andeersg/bouvet_profile"
+            "url": "https://github.com/andeersg/bouvet_profile",
+            "no-api": true
         }
     },
     "require": {
