@@ -1,0 +1,74 @@
+# Create and start containers:
+# `docker-compose up -d`
+#
+# Stop services and remove all containers, networks:
+# `docker-compose down`
+# + persistent volumes:
+# `docker-compose down -v`
+#
+# Read more: http://www.drupaldocker.org
+version: '2'
+services:
+  # You can customize this service to use your favourite RDBMS.
+  # Available:
+  # - mariadb
+  # - mysql
+  #
+  # Read more: http://www.drupaldocker.org/images/MARIADB.html
+  db:
+    image: drupaldocker/mariadb:10.1
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'True'
+    volumes:
+      - dbdata:/var/lib/mysql
+
+  # If your application depends on specific version of php you can change 7.1
+  # to your prefered php version. All supported PHP versions are available:
+  # 5.6, 7.0, 7.1
+  #
+  # Read more: http://www.drupaldocker.org/images/PHP.html
+  php:
+    image: drupaldocker/php-dev:7.1-fpm
+    volumes:
+      - ./:/var/www/html
+
+  # app service is the only service which expose port to the docker host.
+  # Use following command to check which port on host is mapped to the port 80
+  # in app service:
+  #
+  # `docker-compose port app 80`
+  #
+  # You can choose your prefered app service: apache or nginx.
+  #
+  # Read more: http://www.drupaldocker.org/images/NGINX.html
+  # Read more: http://www.drupaldocker.org/images/APACHE.html
+  app:
+    image: drupaldocker/nginx:stable
+    environment:
+      - DOCROOT=/var/www/html/web
+    ports:
+      - 80
+    volumes_from:
+      - php
+    depends_on:
+      - db
+      - php
+
+  # cli service allowes you running project mainenance scripts, like drush/console
+  # commands, on your Drupal installation. It automatically links to db and php
+  # service so you can run commands like `drush si`. It also shares volumes
+  # across all services that you can generate modules with drupal console.
+  #
+  # Example usage:
+  # `drupal-compose run --rm cli bash`
+  cli:
+    image: drupaldocker/php:7.1-cli
+    volumes_from:
+      - php
+    depends_on:
+      - db
+      - php
+
+# Create named volume to ensure data persistence.
+volumes:
+  dbdata:
